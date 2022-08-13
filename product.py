@@ -1,16 +1,22 @@
 product = []
+#確認有無檔案
 #讀取檔案
-with open('product.csv', 'r', encoding ='utf-8') as f:
-	for line in f:
-		#(可替代下面一行)
-		# s = line.strip().split(',')
-		# name = s[0]
-		# price = s[1] 
-		if '商品,價格' in line:
-			continue
-		name, price = line.strip().split(',')
-		product.append([name, price])
-print(product)
+import os #oerating system
+if os.path.isfile('product.csv'):
+	print('有檔案')
+	with open('product.csv', 'r', encoding ='utf-8') as f:
+		for line in f:
+			#(可替代下面一行)
+			# s = line.strip().split(',')
+			# name = s[0]
+			# price = s[1] 
+			if '商品,價格' in line:
+				continue
+			name, price = line.strip().split(',')
+			product.append([name, price])
+	print(product)
+else:
+	print('沒有檔案')
 
 #二維清單
 while True:
